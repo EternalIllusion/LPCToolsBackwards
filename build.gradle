@@ -13,6 +13,14 @@ base {
 repositories {
 	maven { url = 'https://jitpack.io' }
 	maven { url = 'https://maven.terraformersmc.com/releases/' }
+                    maven {
+        url = "https://api.modrinth.com/maven"
+    }
+maven { url 'https://masa.dy.fi/maven' }
+                maven { url 'https://maven.fabricmc.net' }
+                maven { url 'https://libraries.minecraft.net' }
+maven { url "https://www.cursemaven.com" }
+
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -37,13 +45,16 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "com.github.sakura-ryoko:malilib:${project.malilib_version}"
+	modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
+
+	
 
 	//Suggested mods
-	modCompileOnly "com.github.sakura-ryoko:minihud:${project.minihud_version}"
-	modRuntimeOnly "com.github.sakura-ryoko:minihud:${project.minihud_version}"
-	modCompileOnly "com.github.sakura-ryoko:litematica:${project.litematica_version}"
-	modRuntimeOnly "com.github.sakura-ryoko:litematica:${project.litematica_version}"
+	modCompileOnly "curse.maven:minihud-${minihud_projectid}:${minihud_fileid}"
+	modRuntimeOnly "curse.maven:minihud-${minihud_projectid}:${minihud_fileid}"
+	modCompileOnly "curse.maven:litematica-${litematica_projectid}:${litematica_fileid}"
+	modRuntimeOnly "curse.maven:litematica-${litematica_projectid}:${litematica_fileid}"
+
 	modCompileOnly "com.terraformersmc:modmenu:${project.mod_menu_version}"
 	modRuntimeOnly "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
